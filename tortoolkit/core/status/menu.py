@@ -17,15 +17,7 @@ torlog = logging.getLogger(__name__)
 
 def get_num(no):
     nums = ["0️⃣", "1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣", "🔟"]
-    numstr = ""
-
-    if no <= 9:
-        return nums[no]
-    else:
-        for i in str(no):
-            numstr += nums[int(i)]
-
-    return numstr
+    return nums[no] if no <= 9 else "".join(nums[int(i)] for i in str(no))
 
 
 async def create_status_menu(event):
